@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Story Character</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>The Enchanted Forest</h1>
+            <div class="character-info">
+                <div class="character-portrait">
+                    <img src="/api/placeholder/150/150" alt="Character Portrait">
+                </div>
+                <div class="character-bio">
+                    <h2>Kaladin the wise</h2>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="story-context">
+                <p>You've wandered into an enchanted forest unlike any you've seen before. The trees whisper secrets, and you sense you're not alone. Suddenly, a figure emerges from between the ancient oaks...</p>
+            </div>
+            
+            <div class="chat-container">
+                <div id="chat-messages">
+                    <div class="message character-message">
+                        <p>Greetings, traveler. I am Kaladin, legenday magic carpet merchant. What brings you to my forest today?</p>
+                    </div>
+                </div>
+                
+                <div class="user-input">
+                    <textarea id="user-message" placeholder="Type your message..."></textarea>
+                    <button id="send-button">Send</button>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Bogdan Stoica © 2025</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
