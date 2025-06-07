@@ -38,26 +38,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function addMessageToUI(sender, message) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message');
-        
-        if (sender === 'user') {
-            messageElement.classList.add('user-message');
-        } else {
-            messageElement.classList.add('character-message');
-        }
-        
-        messageElement.innerHTML = `<p>${message}</p>`;
-        chatMessages.appendChild(messageElement);
-        
-        // Scroll to bottom
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message');
+    if (sender === 'user') {
+        messageElement.classList.add('user-message');
+        messageElement.innerHTML = `<span class="speaker">You:</span> <span class="text">${message}</span>`;
+    } else {
+        messageElement.classList.add('character-message');
+        messageElement.innerHTML = `<span class="speaker">Kaladin:</span> <span class="text">${message}</span>`;
     }
+    document.getElementById('chat-messages').appendChild(messageElement);
+    // Optionally scroll to bottom
+    document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+}
     
     function showTypingIndicator() {
         const typingIndicator = document.createElement('div');
         typingIndicator.classList.add('message', 'character-message', 'typing-indicator');
-        typingIndicator.innerHTML = '<p>Elara is thinking...</p>';
+        typingIndicator.innerHTML = '<p>Kaladin is thinking...</p>';
         typingIndicator.id = 'typing-indicator';
         chatMessages.appendChild(typingIndicator);
         chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -102,4 +100,20 @@ document.addEventListener('DOMContentLoaded', () => {
             addMessageToUI('character', "I'm sorry, I seem to be lost in thought. Could you try again?");
         }
     }
+
+    // Fetch character portrait
+    async function fetchCharacterPortrait() {
+        try {
+            const response = await fetch('/api/character/portrait');
+            const data = await response.json();
+            const portraitImg = document.getElementById('character-portrait');
+            portraitImg.src = data.url;
+            portraitImg.alt = data.alt;
+        } catch (error) {
+            console.error('Error fetching character portrait:', error);
+        }
+    }
+
+    // Initialize
+    fetchCharacterPortrait();
 });

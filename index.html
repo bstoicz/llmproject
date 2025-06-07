@@ -3,46 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Story Character</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Kaladin's Magic Carpet Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>The Enchanted Forest</h1>
+        <div class="left-column">
             <div class="character-info">
                 <div class="character-portrait">
-                    <img src="/api/placeholder/150/150" alt="Character Portrait">
+                    <img src="/api/character/portrait" alt="Character Portrait" id="character-portrait">
                 </div>
                 <div class="character-bio">
-                    <h2>Kaladin the wise</h2>
+                    <h2 id="character-name">Kaladin</h2>
+                    <p class="character-role" id="character-role">Magic Carpet Merchant</p>
                 </div>
             </div>
-        </header>
-        
-        <main>
             <div class="story-context">
-                <p>You've wandered into an enchanted forest unlike any you've seen before. The trees whisper secrets, and you sense you're not alone. Suddenly, a figure emerges from between the ancient oaks...</p>
+                <p>Welcome to Kaladin's Magic Carpet Shop, hidden in the city's mystical quarter. The air is thick with the scent of exotic spices and the subtle hum of magical energy. Each carpet here holds ancient secrets and untold stories, waiting to be discovered by the right traveler.</p>
             </div>
-            
+        </div>
+        <div class="right-column">
             <div class="chat-container">
                 <div id="chat-messages">
                     <div class="message character-message">
-                        <p>Greetings, traveler. I am Kaladin, legenday magic carpet merchant. What brings you to my forest today?</p>
+                        <span class="speaker">Kaladin:</span>
+                        <span class="text">Welcome, traveler. I am Kaladin, keeper of the most enchanted carpets in all the realms. What brings you to my humble shop today?</span>
                     </div>
                 </div>
-                
                 <div class="user-input">
-                    <textarea id="user-message" placeholder="Type your message..."></textarea>
+                    <textarea id="user-message" placeholder="Type your message..." rows="3"></textarea>
                     <button id="send-button">Send</button>
                 </div>
             </div>
-        </main>
-        
-        <footer>
-            <p>Bogdan Stoica © 2025</p>
-        </footer>
+        </div>
     </div>
+    
+    <footer>
+        <p>Bogdan Stoica © 2025</p>
+    </footer>
     
     <script src="script.js"></script>
 </body>
